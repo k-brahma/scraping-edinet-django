@@ -15,8 +15,9 @@ Including another URLconf
 """
 
 from django.urls import path
-from seccode.views import seccode_list
+from seccode.views import Seccodelistv
 
-urlpatterns = {
-    path('', seccode_list.as_view(), name='seccode_list'),
-}
+app_name = 'seccode'
+urlpatterns = [
+    path('', Seccodelistv.as_view(), name='seccodelists'),
+]

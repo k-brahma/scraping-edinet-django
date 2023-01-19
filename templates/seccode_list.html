@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Seccode_list</title>
 </head>
 <body>
-
+{% for item in object_list %}
+<ul>
+    <li>{{ item.seccode }}</li>
+    <li>{{ item.company_name }}</li>
+    <li>{{ item.settlement_month }}</li>
+    <li>{{ item.dividends_zenki }}</li>
+    <li>{{ item.dividends_yosou }}</li>
+    <li>{{ item.shares }}</li>
+</ul>
+{% endfor %}
 </body>
 </html>
