@@ -15,3 +15,24 @@ class seccode_list(models.Model):
 
     def __str__(self):
         return self.company_name
+
+    def csv_import(self, file):
+        """CSVファイルをインポートする"""
+        import csv
+        from io import TextIOWrapper
+
+        reader = csv.reader(TextIOWrapper(file, encoding='utf-8'))
+        count = 0
+        for row in reader:
+            if count == 0:
+                count += 1  # ヘッダー行はスキップ
+                continue
+            else:
+                self.objects.create(
+                    seccode=row[0],
+                    company_name=row[1],
+                    settlement_month=row[2],
+                    dividends_zenki=row[3],
+                    dividends_yosou=row[4],
+                    shares=row[5],
+                )
