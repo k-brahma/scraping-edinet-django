@@ -46,7 +46,7 @@ class screening_list(models.Model):
     """スクリーニングリストモデル"""
 
     class Meta:
-        db_table = 'screening_list'
+        db_table = 'screening_lists'
 
     # テ－ブルコラムに対応するテ－ブルを定義
     seccode = models.IntegerField(verbose_name='銘柄コード', primary_key=True)
@@ -64,43 +64,33 @@ class screening_list(models.Model):
     operating_cf = models.IntegerField(verbose_name='営業キャッシュフロー')
     shares = models.IntegerField(verbose_name='発行済株式数')
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, name, base_list):
+        self.name = name
+        self.base_list = base_list
 
-
-    # def csv_import(self, file):
-    #     """CSVファイルをインポートする"""
-    #     import csv
-    #
-    #     with file.open(mode='r', encoding='utf-8') as file:
-    #         reader = csv.DictReader(file)
-    #     count = 0
-    #     for row in reader:
-    #         if count == 0:
-    #             count += 1  # ヘッダー行はスキップ
-    #             continue
-    #         else:
-    #             self.objects.create(
-    #                 seccode=row[0],
-    #                 company_name=row[1],
-    #                 industry =row[2],
-    #                 priority_market =row[3],
-    #                 settlement_month =row[4],
-    #                 accounting_standards =row[5],
-    #                 market_capitalization =row[6],
-    #                 ev_ebitda =row[7],
-    #                 dividends_zenki=row[8],
-    #                 dividends_yosou=row[9],
-    #                 dividend_yield=row[10],
-    #                 own_capital_ratio=row[11],
-    #                 operating_cf=row[12],
-    #                 shares=row[13],
-    #             )
+    def cf_haitou_hiritsu_insert(base_list):
+        for row in base_list:
+            objects.create(
+                seccode=row[0],
+                company_name=row[1],
+                industry=row[2],
+                priority_market=row[3],
+                settlement_month=row[4],
+                accounting_standards=row[5],
+                market_capitalization=row[6],
+                ev_ebitda=row[7],
+                dividends_zenki=row[8],
+                dividends_yosou=row[9],
+                dividend_yield=row[10],
+                own_capital_ratio=row[11],
+                operating_cf=row[12],
+                shares=row[13],
+            )
 
     from .screening.Reas_Csv_Screening import cf_haitou_hiritsu
-    base_path = Path(__file__).parent
-    csv_file_path = base_path / 'screening' /'screening_20221224083954.csv'
-    cf_haitou_hiritsu(csv_file_path)
 
-    cf_haitou_hiritsu()
+    base_path = Path(__file__).parent
+    csv_file_path = base_path / 'screening' / 'screening_20221224083954.csv'
+    base_list = cf_haitou_hiritsu(csv_file_path)
+    cf_haitou_hiritsu_insert(base_list)
     # print(cf_haitou_hiritsu())
