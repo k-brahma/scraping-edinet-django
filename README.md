@@ -7,14 +7,36 @@ EdinetスクレイピングのDjangoアプリ
 1. クロ－ンの実施
   git clone https://github.com/UtsuboHiroaki/sclayPing_Edinet_django.git
 
-2. \config に移動
+2. 仮想環境を作る
 
-3. 移動先でターミナルを開く
+   ``` shell
+   python -m venv venv
+   ```
 
-4. 以下を実行する
+3. 仮想環境に入る
+
+   ``` shell
+   venv\Scripts\activate
+   ```
+
+4. Djangoをインストール
+
+   ```shell
+   pip install django
+
+   ```
+5. \config に移動
+
+
+6. 移動先でターミナルを開く
+
+
+7. 以下を実行する
   - python generate_secretkey_setting.py > local_settings.py
 
-5. SECRET_KEYが生成されるのでコピ－
 
-6. local_settings.pyにコピ－したSECRET_KEYを貼る
+8. SECRET_KEYが生成されるのでコピ－
+
+
+9. local_settings.pyにコピ－したSECRET_KEYを貼る
 SECRET_KEY = ''
