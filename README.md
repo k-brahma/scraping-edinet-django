@@ -24,19 +24,21 @@ EdinetスクレイピングのDjangoアプリ
    ```shell
    pip install django
 
-   ```
-5. \config に移動
+5. プロジェクト直下でターミナルを開く
 
 
-6. 移動先でターミナルを開く
+7. 以下のコマンドを実行
+  - python manage.py shell
 
 
-7. 以下を実行する
-  - python generate_secretkey_setting.py > local_settings.py
+8. 対話モードで以下のコードを実行
+- >>> from django.core.management.utils import get_random_secret_key
+- >>> get_random_secret_key()
+ 
+9. 出力された文字列をコピ－
 
 
-8. SECRET_KEYが生成されるのでコピ－
+10./configに移動しsettings_local_sample.pyの名称をsettings_local.pyに変更 
 
-
-9. local_settings.pyにコピ－したSECRET_KEYを貼る
+11. settings_local.pyにコピ－したSECRET_KEYを貼る
 SECRET_KEY = ''
