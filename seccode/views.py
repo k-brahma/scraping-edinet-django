@@ -1,7 +1,8 @@
 from django.views.generic import ListView
-from .models import seccode_list
+from .models import SeccodeList
+
 
 # Create your views here.
 class Seccodelistv(ListView):
-    model = seccode_list
+    model = SeccodeList
     template_name = 'seccode_list.html'

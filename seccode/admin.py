@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import seccode_list
+from .models import SeccodeList
 
-admin.site.register(seccode_list)
+admin.site.register(SeccodeList)
