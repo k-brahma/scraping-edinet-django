@@ -4,7 +4,7 @@ from django.db import models
 from .screening.Reas_Csv_Screening import cf_haitou_hiritsu
 
 
-class SeccodeList(models.Model):
+class SecCodeList(models.Model):
     """銘柄コ－ドリストモデル"""
 
     class Meta:
