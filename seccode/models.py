@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from django.db import models
-from .screening.Reas_Csv_Screening import cf_haitou_hiritsu
+from .screening.rcs import cf_haitou_hiritsu
 
 
 class SecCodeList(models.Model):
