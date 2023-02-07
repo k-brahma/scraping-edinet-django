@@ -3,6 +3,6 @@ from .models import SecCodeList
 
 
 # Create your views here.
-class SecCodelistv(ListView):
+class SecCodeListV(ListView):
     model = SecCodeList
     template_name = 'seccode_list.html'
