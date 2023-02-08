@@ -5,4 +5,4 @@ from .models import SecCodeList
 # Create your views here.
 class SecCodeListV(ListView):
     model = SecCodeList
-    template_name = 'seccode_list.html'
+    template_name = 'sec_code_list.html'
