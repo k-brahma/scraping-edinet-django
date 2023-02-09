@@ -5,7 +5,7 @@ EdinetスクレイピングのDjangoアプリ
 - SECRET_KEYを管理対象外にしておりますのでクロ－ン後は以下の処理を行ってください
 
 1. クロ－ンの実施
-  git clone https://github.com/UtsuboHiroaki/sclayPing_Edinet_django.git
+  git clone https://github.com/UtsuboHiroaki/scraping-edinet-django.git
 
 2. 仮想環境を作る
 
