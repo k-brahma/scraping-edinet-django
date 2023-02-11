@@ -1,4 +1,4 @@
-from django.apps import AppConfig
+1from django.apps import AppConfig
 
 
 class DownloadzipfileConfig(AppConfig):

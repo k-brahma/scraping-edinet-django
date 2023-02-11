@@ -14,3 +14,4 @@ def cf_haitou_hiritsu(csv_file_path):
                 # row.clear()
                 base_list.append(row)
     return base_list
+1

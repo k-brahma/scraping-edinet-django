@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -14,7 +13,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='seccode_list',
             fields=[
-                ('seccode', models.IntegerField(max_length=5, primary_key=True, serialize=False, verbose_name='銘柄コード')),
+                ('seccode',
+                 models.IntegerField(max_length=5, primary_key=True, serialize=False, verbose_name='銘柄コード')),
                 ('company_name', models.CharField(max_length=50, verbose_name='銘柄名')),
                 ('settlement_month', models.CharField(max_length=2, verbose_name='決済月')),
                 ('dividends_zenki', models.IntegerField(max_length=10, verbose_name='配当金（前期）')),
