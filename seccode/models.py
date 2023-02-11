@@ -53,6 +53,8 @@ class ScreeningList(models.Model):
         | screening_listsというデータベースを作成したい
         | 4. その後の利用目的としては調査対象であるbase_listと既に調査した銘柄リストの
         | 差分を抽出し今回の調査対象である銘柄リストを作成したいのが意図です
+        | akiyokoさんの「Django管理サイトのつくり方」の本にdjango-import-exportパッケージを使用した
+        | 記載があったので一旦はそちらを参照して対応してみます
         | 以上です
         """
 
