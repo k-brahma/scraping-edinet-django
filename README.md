@@ -1,4 +1,4 @@
-# sclayPing_Edinet_django
+# scraping-edinet-django
 
 EdinetスクレイピングのDjangoアプリ
 
@@ -25,23 +25,29 @@ EdinetスクレイピングのDjangoアプリ
 
    ```shell
    pip install django
+   ```
 
 5. プロジェクト直下でターミナルを開く
 
 
-7. 以下のコマンドを実行
+6. 以下のコマンドを実行
 
-- python manage.py shell
+   ``` shell
+   python manage.py shell
+   ```
+
+7. 対話モードで以下のコードを実行
+
+   ```python
+   from django.core.management.utils import get_random_secret_key
+   
+   get_random_secret_key()
+   ```
+
+8. 出力された文字列をコピ－
 
 
-8. 対話モードで以下のコードを実行
+9. /config に移動しsettings_local_sample.pyの名称をsettings_local.pyに変更
 
-- > > > from django.core.management.utils import get_random_secret_key
-- > > > get_random_secret_key()
-
-9. 出力された文字列をコピ－
-
-10./configに移動しsettings_local_sample.pyの名称をsettings_local.pyに変更
-
-11. settings_local.pyにコピ－したSECRET_KEYを貼る
+10. settings_local.pyにコピ－したSECRET_KEYを貼る
     SECRET_KEY = ''
