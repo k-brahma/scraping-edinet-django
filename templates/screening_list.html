@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ScreeningList</title>
+</head>
+<body>
+{% for item in object_list %}
+    <ul>
+        <li>{{ item.seccode }}</li>
+        <li>{{ item.company_name }}</li>
+        <li>{{ item.industry }}</li>
+        <li>{{ item.priority_market }}</li>
+        <li>{{ item.settlement_month }}</li>
+        <li>{{ item.accounting_standards }}</li>
+        <li>{{ item.market_capitalization }}</li>
+        <li>{{ item.ev_ebitda }}</li>
+        <li>{{ item.dividends_zenki }}</li>
+        <li>{{ item.dividends_yosou }}</li>
+        <li>{{ item.dividend_yield }}</li>
+        <li>{{ item.own_capital_ratio }}</li>
+        <li>{{ item.operating_cf }}</li>
+        <li>{{ item.shares }}</li>
+    </ul>
+{% endfor %}
+</body>
+</html>
