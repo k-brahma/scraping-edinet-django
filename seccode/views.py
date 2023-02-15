@@ -1,6 +1,7 @@
 from django.views.generic import ListView
 from .models import SecCodeList, ScreeningList
 from pathlib import Path
+
 from .screening.rcs import cf_haitou_hiritsu
 
 
@@ -15,7 +16,8 @@ class ScreeningListV(ListView):
     context_object_name = 'screening_lists'
     template_name = 'screening_list.html'
 
-    def cf_div_ratio(cf_haitou_hiritsu):
+    def cf_div_ratio():
+
         """
         | 私のやりたいこと
         | 1. \decode\screeningにあるscreening_20221224083954.csvが他のサイトからダウンロードしたcsv
@@ -34,25 +36,26 @@ class ScreeningListV(ListView):
         base_list = cf_haitou_hiritsu(csv_file_path)
         return base_list
 
+
     def table_create(base_list):
         for row in base_list:
             screening_lists = ScreeningList.objects.create(
-                seccode=row['銘柄コード'],
+                seccode=int(row['銘柄コード']),
                 company_name=row['会社名'],
                 industry=row['業種'],
                 priority_market=row['優先市場'],
                 settlement_month=row['決算月'],
                 accounting_standards=row['会計基準'],
-                market_capitalization=row['時価総額'],
-                ev_ebitda=row['EV/EBITDA'],
-                dividends_zenki=row['配当金(前期)'],
-                dividends_yosou=row['配当金(会予)'],
-                dividend_yield=row['配当利回り(会予)'],
-                own_capital_ratio=row['自己資本比率'],
-                operating_cf=row['営業CF'],
-                shares_outstanding=row['発行済株式総数'],
+                market_capitalization=int(row['時価総額']),
+                ev_ebitda=float(row['EV/EBITDA']),
+                dividends_zenki=int(row['配当金(前期)']),
+                dividends_yosou=int(row['配当金(会予)']),
+                dividend_yield=float(row['配当利回り(会予)']),
+                own_capital_ratio=float(row['自己資本比率']),
+                operating_cf=int(row['営業CF']),
+                shares_outstanding=int(row['発行済株式総数']),
             )
         return screening_lists
 
-    # base_list = cf_div_ratio(cf_haitou_hiritsu)
-    # screening_lists = table_create(base_list)
+
+

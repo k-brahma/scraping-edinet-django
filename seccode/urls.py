@@ -19,6 +19,6 @@ from seccode.views import SecCodeListV, ScreeningListV
 
 app_name = 'seccode'
 urlpatterns = [
-    path('seccode/', SecCodeListV.as_view(), name='seccodelists'),
+    path('', SecCodeListV.as_view(), name='seccodelists'),
     path('screening/', ScreeningListV.as_view(), name='screeninglists'),
 ]
