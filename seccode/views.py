@@ -16,8 +16,7 @@ class ScreeningListV(ListView):
     context_object_name = 'screening_lists'
     template_name = 'screening_list.html'
 
-    def cf_div_ratio():
-
+    def cf_div_ratio(self):
         """
         | 私のやりたいこと
         | 1. \decode\screeningにあるscreening_20221224083954.csvが他のサイトからダウンロードしたcsv
@@ -36,8 +35,7 @@ class ScreeningListV(ListView):
         base_list = cf_haitou_hiritsu(csv_file_path)
         return base_list
 
-
-    def table_create(base_list):
+    def table_create(self, base_list):
         for row in base_list:
             screening_lists = ScreeningList.objects.create(
                 seccode=int(row['銘柄コード']),
@@ -46,16 +44,13 @@ class ScreeningListV(ListView):
                 priority_market=row['優先市場'],
                 settlement_month=row['決算月'],
                 accounting_standards=row['会計基準'],
-                market_capitalization=int(row['時価総額']),
+                market_capitalization=int(row['時価総額'].replace(",", "")),
                 ev_ebitda=float(row['EV/EBITDA']),
-                dividends_zenki=int(row['配当金(前期)']),
-                dividends_yosou=int(row['配当金(会予)']),
+                dividends_zenki=int(float(row['配当金(前期)'])),
+                dividends_yosou=int(float(row['配当金(会予)'])),
                 dividend_yield=float(row['配当利回り(会予)']),
-                own_capital_ratio=float(row['自己資本比率']),
-                operating_cf=int(row['営業CF']),
-                shares_outstanding=int(row['発行済株式総数']),
+                own_capital_ratio=float(row['自己資本比率'].replace("-", "") or "0"),
+                operating_cf=int(row['営業CF'].replace(",", "")),
+                shares=int(float(row['発行済株式総数'].replace(",", ""))),
             )
         return screening_lists
-
-
-
