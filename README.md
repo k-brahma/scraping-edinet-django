@@ -33,7 +33,6 @@ EdinetスクレイピングのDjangoアプリ
 
 - python manage.py shell
 
-
 8. 対話モードで以下のコードを実行
 
 - > > > from django.core.management.utils import get_random_secret_key
