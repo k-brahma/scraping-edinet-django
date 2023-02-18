@@ -25,9 +25,11 @@ class ScreeningListV(ListView):
         | screening_listsというデータベースを作成したい
         | 4. その後の利用目的としては調査対象であるbase_listと既に調査した銘柄リストの
         | 差分を抽出し今回の調査対象である銘柄リストを作成したいのが意図です
-        | akiyokoさんの「Django管理サイトのつくり方」の本にdjango-import-exportパッケージを使用した
-        | 記載があったので一旦はそちらを参照して対応してみます
-        | 以上です
+        | 2023/02/18の状況報告
+        | cf_div_ratioは基のCSVファイルから条件に合わない銘柄を最初に除外するための関数です
+        | table_createはbase_listを基にしたscreening_listsを作成する関数です
+        | コンソ－ルメソッドを使用して一旦はscreening_listsを作成しました
+        | 問題点等があればご指摘いただきたくお願いします
         """
 
         base_path = Path(__file__).parent
