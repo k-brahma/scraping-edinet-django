@@ -1,4 +1,4 @@
-# scraping-edinet-django
+# sclayPing_Edinet_django
 
 EdinetスクレイピングのDjangoアプリ
 
@@ -44,7 +44,8 @@ EdinetスクレイピングのDjangoアプリ
    get_random_secret_key()
    ```
 
-8. 出力された文字列をコピ－
+- > > > from django.core.management.utils import get_random_secret_key
+- > > > get_random_secret_key()
 
 
 9. /config に移動しsettings_local_sample.pyの名称をsettings_local.pyに変更

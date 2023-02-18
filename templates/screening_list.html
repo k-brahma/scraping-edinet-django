@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .ul-flex {
+            display: grid;
+            grid-template-columns: 90px 250px 150px 90px 90px 90px 90px 120px 120px 120px 120px 120px 150px 120px;
+        }
+    </style>
+    <title>ScreeningList</title>
+</head>
+<body>
+<h1>スクリ－ニング対象銘柄のページです</h1>
+<section class="section">
+    <ul>
+        <li id="title">項目名
+            <ul class="ul-flex">
+                <li>銘柄コード</li>
+                <li>銘柄名</li>
+                <li>業種</li>
+                <li>優先市場</li>
+                <li>決済月</li>
+                <li>会計基準</li>
+                <li>時価総額</li>
+                <li>EV/EBITDA</li>
+                <li>配当金（前期）</li>
+                <li>配当金（予想）</li>
+                <li>配当利回り</li>
+                <li>自己資本比率</li>
+                <li>営業CF</li>
+                <li>発行済株式数</li>
+            </ul>
+        </li>
+        <li>
+            {% for item in object_list %}
+                <ul class="ul-flex">
+                    <li>{{ item.seccode }}</li>
+                    <li>{{ item.company_name }}</li>
+                    <li>{{ item.industry }}</li>
+                    <li>{{ item.priority_market }}</li>
+                    <li>{{ item.settlement_month }}</li>
+                    <li>{{ item.accounting_standards }}</li>
+                    <li>{{ item.market_capitalization }}</li>
+                    <li>{{ item.ev_ebitda }}</li>
+                    <li>{{ item.dividends_zenki }}</li>
+                    <li>{{ item.dividends_yosou }}</li>
+                    <li>{{ item.dividend_yield }}</li>
+                    <li>{{ item.own_capital_ratio }}</li>
+                    <li>{{ item.operating_cf }}</li>
+                    <li>{{ item.shares }}</li>
+                </ul>
+                </li>
+            {% endfor %}
+    </ul>
+</section>
+</body>
+</html>
